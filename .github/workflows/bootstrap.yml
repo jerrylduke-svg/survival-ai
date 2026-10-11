@@ -30,6 +30,8 @@ jobs:
       - name: Verify and assemble app
         run: |
           python3 project/scripts/check_sources.py
+          g++ -std=c++17 -Wall -Wextra -Werror -I project/overlay/lib/src/main/cpp project/tests/generation_budget_test.cpp -o /tmp/generation-budget-test
+          /tmp/generation-budget-test
           bash project/scripts/assemble.sh
 
       - name: Install Android toolchain
